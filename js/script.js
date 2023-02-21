@@ -25,6 +25,7 @@ function loadMusic(index){
     musicArtist.innerText = allMusic[index].artist;
     musicImg.src = `images/${allMusic[index].img}.jpg`;
     mainAudio.src = `songs/${allMusic[index].src}.mp3`;
+    playingNow();
 }
 
 function playMusic(){
@@ -58,6 +59,7 @@ function nextMusic(){
     playMusic();
 }
 function prevMusic(){
+    if(repeatBtn.innerText == "repeat_one")repeatBtn.innerText = "repeat"
     musicIndex == 0 ? musicIndex = allMusic.length - 1 : musicIndex--;
     loadMusic(musicIndex);
     playMusic();
